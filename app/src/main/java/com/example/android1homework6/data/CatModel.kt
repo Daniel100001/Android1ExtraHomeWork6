@@ -4,6 +4,7 @@ import com.example.android1homework6.ui.fragments.DetailFragment
 
 data class CatModel(
     val image: String? = null ,
+    val catId: String? = null,
     val name: String? = null,
     val detail: String? = null
 ) : java.io.Serializable{

@@ -1,5 +1,7 @@
 package com.example.android1homework6.ui.adapters
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +31,7 @@ class CatAdapter(private val onItemClick: OnItemClick,
             name?.text = catModel.name
             itemView.setOnClickListener(View.OnClickListener {
                 onItemClick.onShortClick(catModel)
+
             })
         }
 
@@ -41,6 +44,14 @@ class CatAdapter(private val onItemClick: OnItemClick,
     override fun getItemCount(): Int = listModel.size
 
     override fun onBindViewHolder(holder: CatViewHolder, position: Int) {
-        holder.onBind(listModel[position])    }
+        holder.onBind(listModel[position])
+        val item = listModel[position]
+        holder.onBind(item)
+        holder.itemView.setOnLongClickListener {
+            onItemClick.onItemLongClick(position)
+            return@setOnLongClickListener true
+        }
+
+    }
 }
 

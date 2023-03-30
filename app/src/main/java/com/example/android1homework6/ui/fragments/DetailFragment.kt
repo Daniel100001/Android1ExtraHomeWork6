@@ -15,7 +15,7 @@ import org.w3c.dom.Text
 
 class DetailFragment : Fragment() {
 
-    private var image:ImageView? = null
+    private var image: ImageView? = null
     private var text: TextView? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,17 +29,10 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         image = view.findViewById(R.id.Image_Detail)
         text = view.findViewById(R.id.Text_Detail)
-        getData()
-    }
 
-    private fun getData() {
-        val bundle = arguments
-        if (bundle != null) {
-            val dataModel = bundle.getSerializable("Dan") as CatModel
-            image?.context?.let { Glide.with(it).load(dataModel.getImageUri()).into(image!!) }
-            text?.setText(dataModel.detail)
-        }
     }
 }
+
+
 
 

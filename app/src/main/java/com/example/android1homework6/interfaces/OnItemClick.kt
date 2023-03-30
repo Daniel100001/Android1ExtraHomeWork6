@@ -4,5 +4,6 @@ import com.example.android1homework6.data.CatModel
 
 interface OnItemClick{
     fun onShortClick(catModel: CatModel)
+    fun onItemLongClick(position: Int)
 
 }
